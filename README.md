@@ -1,14 +1,18 @@
 # Recipes
 
-**Füge hier einen kurzen, knackigen Slogan ein, um deine App zu bewerben.**
+**Du wolltest schon immer deine Lieblings Cocktails auch zuhause beim Essen genießen, weißt aber nicht wie? Dann bist du hier genau richtig!**
 
-Beschreibe hier in ein paar Sätzen, was deine App bietet.
+In dieser App wird dir genau erklärt welcher Cocktail am besten zu deinem Essen passt. Zu jedem Gericht und Cocktail (egal ob mit oder ohne Alkehol), gibt es tolle Rezepte und genaue Anleitungen und Erkläreungen an die du dich halten kannst.
 
-Für wen ist sie geeignet? Welches Problem löst sie? Was macht deine App anders/besser als andere Apps?
-Vermeide es, hier allzusehr in technische Details zu gehen.
+Die App ist für Jung (ohne Alkehol) und Alt (18+ mit Alkehol) gedacht und bietet dir eine möglichkeit tollte Dinerpartys mit deinen freunden zu veranstallten oder einfach dein verlangen nach einem guten Cocktail zu deinem Lieblingsessen zu befriedigen.
+
+Viel Spaß mit Meiner App :) 
+
+
+(folgendes wird ausgefüllt wärend ich an der App arbeite)
 
 ## Design
-Füge hier am Ende die Screenshots deiner App ein (achte hierbei auf die Guidelines).
+Füge hier am Ende die Screenshots deiner App ein (achte hierbei auf die Guidelines). 
 
 ## Features
 Hier kommen alle Features rein, welche deine App bietet.
