@@ -8,7 +8,7 @@ Die App ist für Jung (ohne Alkehol) und Alt (18+ mit Alkehol) gedacht und biete
 
 Viel Spaß mit Meiner App :) 
 
-(folgendes wird ausgefüllt wärend ich an der App arbeite)
+##(folgendes wird ausgefüllt wärend ich an der App arbeite)
 ## Design
 Füge hier am Ende die Screenshots deiner App ein (achte hierbei auf die Guidelines). 
 
