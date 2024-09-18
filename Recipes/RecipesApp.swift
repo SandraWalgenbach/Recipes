@@ -1,17 +1,24 @@
-//
-//  RecipesApp.swift
-//  Recipes
-//
-//  Created by Sandra Walgenbach on 09.09.24.
-//
-
 import SwiftUI
+import Firebase
 
 @main
 struct RecipesApp: App {
+    @StateObject private var userViewModel = AuthenticationViewModel()
+    
+    init(){
+        FirebaseConfiguration.shared.setLoggerLevel(.min)
+        FirebaseApp.configure()
+    }
+    
     var body: some Scene {
         WindowGroup {
-            ContentView()
-        }
+                    if userViewModel.isUserLoggedIn {
+                        HomeView()
+                            .environmentObject(userViewModel)
+                    } else {
+                        AuthenticationView()
+                            .environmentObject(userViewModel)
+                    }
+                }
     }
 }
