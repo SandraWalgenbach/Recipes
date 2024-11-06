@@ -4,11 +4,11 @@ struct AuthenticationView: View {
     
     @State private var email: String = ""
     @State private var password: String = ""
-    @EnvironmentObject var userViewModel: AuthenticationViewModel
+    @EnvironmentObject var authViewModel: AuthenticationViewModel
     
     var body: some View {
         VStack(spacing: 20) {
-            Text(userViewModel.isRegisterMode ? "Registrieren" : "Anmelden")
+            Text(authViewModel.isRegisterMode ? "Registrieren" : "Anmelden")
                 .font(.largeTitle)
                 .fontWeight(.bold)
                 .padding(.top, 40)
@@ -28,13 +28,13 @@ struct AuthenticationView: View {
                 .padding(.horizontal)
             
             Button(action: {
-                if userViewModel.isRegisterMode {
-                    userViewModel.register(email: email, password: password)
+                if authViewModel.isRegisterMode {
+                    authViewModel.register(email: email, password: password)
                 } else {
-                    userViewModel.login(email: email, password: password)
+                    authViewModel.login(email: email, password: password)
                 }
             }) {
-                Text(userViewModel.isRegisterMode ? "Registrieren" : "Anmelden")
+                Text(authViewModel.isRegisterMode ? "Registrieren" : "Anmelden")
                     .foregroundColor(.white)
                     .font(.headline)
                     .frame(maxWidth: .infinity)
@@ -45,9 +45,9 @@ struct AuthenticationView: View {
             }
             
             Button(action: {
-                userViewModel.isRegisterMode.toggle()
+                authViewModel.isRegisterMode.toggle()
             }) {
-                Text(userViewModel.isRegisterMode ? "Bereits registriert? Anmelden" : "Noch keinen Account? Registrieren")
+                Text(authViewModel.isRegisterMode ? "Bereits registriert? Anmelden" : "Noch keinen Account? Registrieren")
                     .foregroundColor(.blue)
                     .font(.footnote)
             }
@@ -60,5 +60,6 @@ struct AuthenticationView: View {
 
 #Preview {
     AuthenticationView()
+        .environmentObject(AuthenticationViewModel())
 }
 

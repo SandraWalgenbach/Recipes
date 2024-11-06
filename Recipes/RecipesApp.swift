@@ -3,7 +3,7 @@ import Firebase
 
 @main
 struct RecipesApp: App {
-    @StateObject private var userViewModel = AuthenticationViewModel()
+    @StateObject private var authViewModel = AuthenticationViewModel()
     
     init(){
         FirebaseConfiguration.shared.setLoggerLevel(.min)
@@ -12,12 +12,12 @@ struct RecipesApp: App {
     
     var body: some Scene {
         WindowGroup {
-                    if userViewModel.isUserLoggedIn {
+                    if authViewModel.isUserLoggedIn {
                         HomeView()
-                            .environmentObject(userViewModel)
+                            .environmentObject(authViewModel)
                     } else {
                         AuthenticationView()
-                            .environmentObject(userViewModel)
+                            .environmentObject(authViewModel)
                     }
                 }
     }

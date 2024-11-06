@@ -7,8 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5A0D812D2C9B0F5100080F48 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5A0D812C2C9B0F5100080F48 /* GoogleService-Info.plist */; };
 		5A12C55F2C9AEDD400FAF918 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A12C55E2C9AEDD400FAF918 /* HomeView.swift */; };
-		5A2A5B292C9A7DE700083CA8 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5A2A5B282C9A7DE700083CA8 /* GoogleService-Info.plist */; };
+		5A2C9BFF2C9C33E300CB68DA /* MealViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A2C9BFE2C9C33E300CB68DA /* MealViewModel.swift */; };
+		5A2C9C012C9C341900CB68DA /* DrinkViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A2C9C002C9C341900CB68DA /* DrinkViewModel.swift */; };
+		5A2C9C032C9C354C00CB68DA /* MealDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A2C9C022C9C354C00CB68DA /* MealDetailView.swift */; };
+		5A2C9C052C9C356700CB68DA /* DrinkDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A2C9C042C9C356700CB68DA /* DrinkDetailView.swift */; };
 		5AAF6DDF2C9A45A300560347 /* FirebaseStorageCombine-Community in Frameworks */ = {isa = PBXBuildFile; productRef = 5AAF6DDE2C9A45A300560347 /* FirebaseStorageCombine-Community */; };
 		5AAF6DE12C9A45B200560347 /* FirebaseMessaging in Frameworks */ = {isa = PBXBuildFile; productRef = 5AAF6DE02C9A45B200560347 /* FirebaseMessaging */; };
 		5AAF6DE32C9A45C500560347 /* FirebaseMLModelDownloader in Frameworks */ = {isa = PBXBuildFile; productRef = 5AAF6DE22C9A45C500560347 /* FirebaseMLModelDownloader */; };
@@ -40,8 +44,12 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		5A0D812C2C9B0F5100080F48 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		5A12C55E2C9AEDD400FAF918 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
-		5A2A5B282C9A7DE700083CA8 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		5A2C9BFE2C9C33E300CB68DA /* MealViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealViewModel.swift; sourceTree = "<group>"; };
+		5A2C9C002C9C341900CB68DA /* DrinkViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrinkViewModel.swift; sourceTree = "<group>"; };
+		5A2C9C022C9C354C00CB68DA /* MealDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealDetailView.swift; sourceTree = "<group>"; };
+		5A2C9C042C9C356700CB68DA /* DrinkDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrinkDetailView.swift; sourceTree = "<group>"; };
 		5AD65FF82C8F385200A7E0A1 /* Recipes.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Recipes.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5AD65FFB2C8F385200A7E0A1 /* RecipesApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipesApp.swift; sourceTree = "<group>"; };
 		5AD65FFF2C8F385300A7E0A1 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -84,6 +92,13 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		5A2C9BFD2C9C334D00CB68DA /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		5AD65FEF2C8F385200A7E0A1 = {
 			isa = PBXGroup;
 			children = (
@@ -104,9 +119,11 @@
 			isa = PBXGroup;
 			children = (
 				5AD65FFB2C8F385200A7E0A1 /* RecipesApp.swift */,
+				5A2C9BFD2C9C334D00CB68DA /* Model */,
+				5AD9BC7E2C9A3EF6002A09D4 /* ViewModel */,
 				5AD9BC742C9A289C002A09D4 /* View */,
 				5AD65FFF2C8F385300A7E0A1 /* Assets.xcassets */,
-				5A2A5B282C9A7DE700083CA8 /* GoogleService-Info.plist */,
+				5A0D812C2C9B0F5100080F48 /* GoogleService-Info.plist */,
 				5AD660012C8F385300A7E0A1 /* Preview Content */,
 			);
 			path = Recipes;
@@ -125,7 +142,8 @@
 			children = (
 				5AD9BC812C9A3FF8002A09D4 /* AuthenticationView.swift */,
 				5A12C55E2C9AEDD400FAF918 /* HomeView.swift */,
-				5AD9BC7E2C9A3EF6002A09D4 /* ViewModel */,
+				5A2C9C022C9C354C00CB68DA /* MealDetailView.swift */,
+				5A2C9C042C9C356700CB68DA /* DrinkDetailView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -134,6 +152,8 @@
 			isa = PBXGroup;
 			children = (
 				5AD9BC7F2C9A3F22002A09D4 /* AuthenticationViewModel.swift */,
+				5A2C9BFE2C9C33E300CB68DA /* MealViewModel.swift */,
+				5A2C9C002C9C341900CB68DA /* DrinkViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -227,7 +247,7 @@
 			files = (
 				5AD660032C8F385300A7E0A1 /* Preview Assets.xcassets in Resources */,
 				5AD660002C8F385300A7E0A1 /* Assets.xcassets in Resources */,
-				5A2A5B292C9A7DE700083CA8 /* GoogleService-Info.plist in Resources */,
+				5A0D812D2C9B0F5100080F48 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -236,6 +256,7 @@
 /* Begin PBXShellScriptBuildPhase section */
 		5AAF6E0A2C9A4A7000560347 /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
+			alwaysOutOfDate = 1;
 			buildActionMask = 12;
 			files = (
 			);
@@ -263,8 +284,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				5AD9BC802C9A3F22002A09D4 /* AuthenticationViewModel.swift in Sources */,
+				5A2C9C012C9C341900CB68DA /* DrinkViewModel.swift in Sources */,
+				5A2C9BFF2C9C33E300CB68DA /* MealViewModel.swift in Sources */,
 				5AD9BC822C9A3FF8002A09D4 /* AuthenticationView.swift in Sources */,
+				5A2C9C032C9C354C00CB68DA /* MealDetailView.swift in Sources */,
 				5A12C55F2C9AEDD400FAF918 /* HomeView.swift in Sources */,
+				5A2C9C052C9C356700CB68DA /* DrinkDetailView.swift in Sources */,
 				5AD65FFC2C8F385200A7E0A1 /* RecipesApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
