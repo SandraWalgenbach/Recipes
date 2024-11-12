@@ -1,48 +1,57 @@
+import Foundation
 import SwiftUI
 
 struct MealListView: View {
-    @StateObject private var viewModel = MealViewModel()
+    @StateObject private var mealViewModel = MealViewModel()
+    @StateObject private var cocktailViewModel = CocktailViewModel()
     @State private var searchQuery = ""
-
+    
     var body: some View {
         NavigationView {
             VStack {
                 TextField("Search for a meal", text: $searchQuery, onCommit: {
-                    viewModel.searchMeals(query: searchQuery)
+                    mealViewModel.searchMeals(query: searchQuery)
                 })
                 .textFieldStyle(RoundedBorderTextFieldStyle())
-                .padding()
-
-                if viewModel.isLoading {
-                    ProgressView()
-                } else if let errorMessage = viewModel.errorMessage {
+                .padding([.horizontal, .top])
+                
+                if mealViewModel.isLoading {
+                    ProgressView("Loading...")
+                } else if let errorMessage = mealViewModel.errorMessage {
                     Text("Error: \(errorMessage)")
                         .foregroundColor(.red)
+                        .padding()
                 } else {
-                    List(viewModel.meals, id: \.idMeal) { meal in
-                        HStack {
-                            if let imageUrl = meal.strMealThumb, let url = URL(string: imageUrl) {
-                                AsyncImage(url: url) { image in
-                                    image.resizable()
-                                } placeholder: {
-                                    ProgressView()
+                    ScrollView {
+                        LazyVStack {
+                            ForEach(mealViewModel.meals, id: \.idMeal) { meal in
+                                NavigationLink(destination: MealDetailView(meal: meal)) {
+                                    MealItemView(meal: meal)
+                                        .padding(.vertical, 4)
                                 }
-                                .frame(width: 50, height: 50)
-                                .clipShape(RoundedRectangle(cornerRadius: 8))
-                            }
-
-                            VStack(alignment: .leading) {
-                                Text(meal.strMeal)
-                                    .font(.headline)
-                                Text(meal.strCategory ?? "Unknown Category")
-                                    .font(.subheadline)
-                                    .foregroundColor(.secondary)
                             }
                         }
                     }
                 }
             }
-            .navigationTitle("Meals")
+            .navigationTitle("")
+            .toolbar {
+                ToolbarItem(placement: .principal) {
+                    Text("Meals")
+                        .font(.headline)
+                        .fontWeight(.bold)
+                        .padding(.top, 4)
+                        .frame(maxWidth: .infinity)
+                }
+            }
+        }
+        .onAppear {
+            mealViewModel.searchMeals(query: "chicken")
+            cocktailViewModel.searchCocktails(query: "cocktail")
         }
     }
+}
+
+#Preview {
+    MealListView()
 }

@@ -7,8 +7,12 @@ struct AuthenticationView: View {
     @EnvironmentObject var authViewModel: AuthenticationViewModel
     
     var body: some View {
+        
+        
         VStack(spacing: 20) {
+            
             Text(authViewModel.isRegisterMode ? "Registrieren" : "Anmelden")
+                .foregroundColor(.black)
                 .font(.largeTitle)
                 .fontWeight(.bold)
                 .padding(.top, 40)
@@ -17,13 +21,13 @@ struct AuthenticationView: View {
                 .autocapitalization(.none)
                 .keyboardType(.emailAddress)
                 .padding()
-                .background(Color(.secondarySystemBackground))
+                .background(.white)
                 .cornerRadius(8)
                 .padding(.horizontal)
             
             SecureField("Passwort", text: $password)
                 .padding()
-                .background(Color(.secondarySystemBackground))
+                .background(.white)
                 .cornerRadius(8)
                 .padding(.horizontal)
             
@@ -37,9 +41,8 @@ struct AuthenticationView: View {
                 Text(authViewModel.isRegisterMode ? "Registrieren" : "Anmelden")
                     .foregroundColor(.white)
                     .font(.headline)
-                    .frame(maxWidth: .infinity)
                     .padding()
-                    .background(Color.blue)
+                    .background(.green)
                     .cornerRadius(8)
                     .padding(.horizontal)
             }
@@ -47,9 +50,10 @@ struct AuthenticationView: View {
             Button(action: {
                 authViewModel.isRegisterMode.toggle()
             }) {
-                Text(authViewModel.isRegisterMode ? "Bereits registriert? Anmelden" : "Noch keinen Account? Registrieren")
-                    .foregroundColor(.blue)
+                Text(authViewModel.isRegisterMode ? "Bereits registriert? Anmelden" : "Noch keinen Account? Hier Registrieren")
+                    .foregroundColor(.black)
                     .font(.footnote)
+                    .bold()
             }
             
             Spacer()

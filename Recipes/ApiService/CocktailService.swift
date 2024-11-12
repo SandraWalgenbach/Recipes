@@ -1,33 +1,31 @@
 import Foundation
 
 class CocktailService {
-    func fetchCocktails(completion: @escaping ([Cocktail]?) -> Void) {
-        guard let url = URL(string: "https://www.thecocktaildb.com/api/json/v1/1/search.php?s=") else {
-            completion(nil)
+    private let baseURL = "https://www.thecocktaildb.com/api/json/v1/1/search.php"
+    
+    func fetchCocktails(searchQuery: String, completion: @escaping (Result<[Cocktail], Error>) -> Void) {
+        guard let url = URL(string: "\(baseURL)?s=\(searchQuery)") else {
+            completion(.failure(NSError(domain: "Invalid URL", code: -1, userInfo: nil)))
             return
         }
-
-        let task = URLSession.shared.dataTask(with: url) { data, response, error in
+        
+        URLSession.shared.dataTask(with: url) { data, response, error in
             if let error = error {
-                print("Error fetching cocktails: \(error)")
-                completion(nil)
+                completion(.failure(error))
                 return
             }
-
+            
             guard let data = data else {
-                completion(nil)
+                completion(.failure(NSError(domain: "No data", code: -1, userInfo: nil)))
                 return
             }
-
+            
             do {
-                let decoder = JSONDecoder()
-                let cocktailResponse = try decoder.decode(CocktailResponse.self, from: data)
-                completion(cocktailResponse.drinks)
+                let cocktailResponse = try JSONDecoder().decode(CocktailResponse.self, from: data)
+                completion(.success(cocktailResponse.drinks))
             } catch {
-                print("Error decoding data: \(error)")
-                completion(nil)
+                completion(.failure(error))
             }
-        }
-        task.resume()
+        }.resume()
     }
 }

@@ -13,11 +13,11 @@ class AuthenticationViewModel: ObservableObject {
     
     private func checkAuth() {
         guard let currentUser = auth.currentUser else {
-            print("Not logged in")
+            print("nicht angemeldet")
             return
         }
         self.user = currentUser
-        print("User is already logged in with email: \(currentUser.email ?? "No Email")")
+        print("User ist angemeldet mit email: \(currentUser.email ?? "keine Email")")
     }
     
     var isUserLoggedIn: Bool {
@@ -27,7 +27,7 @@ class AuthenticationViewModel: ObservableObject {
     func register(email: String, password: String) {
         auth.createUser(withEmail: email, password: password) { authResult, error in
             if let error {
-                print("Registration failed:", error.localizedDescription)
+                print("Registrierung fehlgeschlagen:", error.localizedDescription)
                 return
             }
             
@@ -35,7 +35,7 @@ class AuthenticationViewModel: ObservableObject {
                 return
             }
             
-            print("User with email ´\(email)´ is registered with id ´\(authResult.user.uid)´")
+            print("User mit email ´\(email)´ ist regestriert mit id ´\(authResult.user.uid)´")
             self.login(email: email, password: password)
         }
     }
@@ -43,7 +43,7 @@ class AuthenticationViewModel: ObservableObject {
     func login(email: String, password: String) {
         auth.signIn(withEmail: email, password: password) { [weak self] authResult, error in
             if let error = error {
-                print("Login failed:", error.localizedDescription)
+                print("Login fehlgeschlagen:", error.localizedDescription)
                 return
             }
             
@@ -51,7 +51,7 @@ class AuthenticationViewModel: ObservableObject {
                 return
             }
             
-            print("User with email ´\(email)´ is logged in with id ´\(authResult.user.uid)´")
+            print("User mit email ´\(email)´ ist ein gelogged mit id ´\(authResult.user.uid)´")
             self?.user = authResult.user
         }
     }
@@ -62,7 +62,7 @@ class AuthenticationViewModel: ObservableObject {
             self.user = nil
             print("User wurde abgemeldet!")
         } catch {
-            print("Error signing out:", error.localizedDescription)
+            print("fehler beim abmelden:", error.localizedDescription)
         }
     }
 }

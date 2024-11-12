@@ -2,7 +2,7 @@ import SwiftUI
 import Firebase
 
 @main
-struct RecipesApp: App {
+    struct RecipesApp: App {
     @StateObject private var authViewModel = AuthenticationViewModel()
     
     init(){
@@ -11,14 +11,17 @@ struct RecipesApp: App {
     }
     
     var body: some Scene {
+        
         WindowGroup {
-                    if authViewModel.isUserLoggedIn {
-                        HomeView()
-                            .environmentObject(authViewModel)
-                    } else {
-                        AuthenticationView()
-                            .environmentObject(authViewModel)
-                    }
+            Group{
+                if authViewModel.isUserLoggedIn {
+                    HomeView()
+                        .environmentObject(authViewModel)
+                } else {
+                    AuthenticationView()
+                        .environmentObject(authViewModel)
                 }
+            }
+        }
     }
 }

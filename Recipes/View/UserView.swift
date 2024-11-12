@@ -1,18 +1,36 @@
-//
-//  UserView.swift
-//  Recipes
-//
-//  Created by Sandra Walgenbach on 06.11.24.
-//
-
 import SwiftUI
 
 struct UserView: View {
+    @EnvironmentObject var authViewModel: AuthenticationViewModel
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        VStack {
+            if authViewModel.isUserLoggedIn {
+                Button(action: {
+                    authViewModel.logout()
+                }) {
+                    Text("Abmelden")
+                        .fontWeight(.bold)
+                        .foregroundColor(.white)
+                        .padding()
+                        .background(Color.red)
+                        .cornerRadius(8)
+                }
+                .padding(.top)
+            } else {
+                Text("Du bist nicht eingeloggt.")
+                    .foregroundColor(.gray)
+                    .font(.body)
+                    .padding()
+            }
+        }
+        .padding()
+        .navigationTitle("Benutzer")
+        .navigationBarHidden(true)
     }
 }
 
 #Preview {
     UserView()
+        .environmentObject(AuthenticationViewModel())
 }
